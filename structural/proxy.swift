@@ -71,3 +71,58 @@ let paymentServiceProxy = PaymentServiceProxy(paymentService: paymentService)
 paymentServiceProxy.makePayment(amount: 50.0, currency: "USD")
 paymentServiceProxy.makePayment(amount: 100.0, currency: "USD")
 
+// ==============================
+// Another Example
+// ==============================
+
+protocol APIService {
+    func fetchLargeData() -> [String: Any]
+}
+
+class RemoteAPIService: APIService {
+    func fetchLargeData() -> [String: Any] {
+        // Simulate fetching a large amount of data from an API
+        return ["data": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]]
+    }
+}
+
+class CachingAPIServiceProxy: APIService {
+    private let remoteAPIService: RemoteAPIService
+    private var cache: [String: [String: Any]] = [:]
+
+    init(remoteAPIService: RemoteAPIService) {
+        self.remoteAPIService = remoteAPIService
+    }
+
+    func fetchLargeData() -> [String: Any] {
+        let cacheKey = "large-data"
+        if let cachedResult = cache[cacheKey] {
+            print("Data cached, returning cached result")
+            return cachedResult
+        } else {
+            let remoteResult = remoteAPIService.fetchLargeData()
+            cache[cacheKey] = remoteResult
+            print("Data fetched remotely, caching and returning remote result")
+            return remoteResult
+        }
+    }
+}
+
+// Example usage
+let remoteAPIService = RemoteAPIService()
+let cachingAPIServiceProxy = CachingAPIServiceProxy(remoteAPIService: remoteAPIService)
+
+cachingAPIServiceProxy.fetchLargeData() 
+// Data fetched remotely, caching and returning remote result
+cachingAPIServiceProxy.fetchLargeData() 
+// Data cached, returning cached result
+
+
+// Use the proxy when for Lazy initialization (virtual proxy).
+// This is when you have a heavyweight service object that wastes
+// system resources by being always up, even though you only need 
+// it from time to time.
+// Caching request results (caching proxy).
+// This is when you need to cache results of client
+// requests and manage the life cycle of this cache,
+// especially if results are quite large.
