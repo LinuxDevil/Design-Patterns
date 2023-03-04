@@ -1,5 +1,6 @@
 
 // Factory Method Pattern
+// https://medium.com/dev-genius/creational-pattern-series-factory-method-e5137a1b0934
 // ======================
 /**
  * Factory Method is a creational design pattern that provides
