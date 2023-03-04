@@ -156,3 +156,8 @@ newDatabase.set(1, { name: 'Ibrahim' });
 const data = newDatabase.get(1);
 
 console.log(data);
+
+// Use the Adapter class when you want to use some existing
+// class, but its interface isn’t compatible with the rest of your code.
+// Use the pattern when you want to reuse several existing subclasses 
+// that lack some common functionality that can’t be added to the superclass.
