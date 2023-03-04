@@ -21,9 +21,9 @@
 // an existing monster and modify its attributes to create
 // a new one.
 
+// The prototype protocol defines the clone method that will 
+// return a copy of the prototype
 
-
-// The prototype protocol defines the clone method that will return a copy of the prototype
 protocol Monster {
     func clone() -> Monster
 }
@@ -74,9 +74,9 @@ let orc2 = spawner.spawnMonster(type: "orc", name: "Krogg")
 print(orc1?.name)
 print(orc2?.name) 
 
+// ====================
 // Another Implementation: 
-
-
+// ====================
 
 // NSCopying is a protocol that defines the copy method.
 // The copy method returns a copy of the object.
