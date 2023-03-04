@@ -117,3 +117,7 @@ const App = () => {
 };
 
 export default App;
+
+// Use the Mediator pattern when it’s hard to change some
+// of the classes because they are tightly coupled
+// to a bunch of other classes.
