@@ -92,7 +92,7 @@ class NPC: NSCopying {
         self.type = type
         self.level = level
     }
-    
+
     // NSZone is a class that represents a memory zone. It is
     // used to allocate memory for objects. The default zone
     // is the default zone for the current thread.
@@ -152,3 +152,9 @@ let elfSpawner = NPCSpawner(npc: elf)
 
 let newHuman = humanSpawner.spawnNPC() as! Human
 let newElf = elfSpawner.spawnNPC() as! Elf
+
+// Use the Prototype pattern when your code shouldn’t depend
+// on the concrete classes of objects that you need to copy.
+// Use the pattern when you want to reduce the number of
+// subclasses that only differ in the way they initialize
+// their respective objects.
