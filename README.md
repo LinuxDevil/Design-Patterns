@@ -12,7 +12,6 @@ This repository contains examples of the three types of design patterns: creatio
     -   [Behavioral](https://github.com/LinuxDevil/DesignPattern-Session#behavioral)
     -   [Structural](https://github.com/LinuxDevil/DesignPattern-Session#structural)
 -   [Contributing](https://github.com/LinuxDevil/DesignPattern-Session#contributing)
--   [License](https://github.com/LinuxDevil/DesignPattern-Session#license)
 
 ## Introduction
 
