@@ -25,8 +25,6 @@ To use the code in this repository, you will need to have the appropriate progra
 
 To download the code and examples from this repository, you can use git:
 
-bashCopy code
-
 `git clone https://github.com/LinuxDevil/DesignPattern-Session.git` 
 
 ## Design Patterns
